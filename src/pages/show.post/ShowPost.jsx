@@ -30,13 +30,19 @@ export default function ShowPost() {
     return (
         <div>
             {post ? (
-                <div className="container">
-                    <h1>Dettagli del post {post.id}</h1>
-                    <h2>{post.title}</h2>
-                    <img className="img-detail" src={post.image ? post.image.includes("https") ? post.image : `${BASE_URI}/${post.image}` : placeholder} alt={post.title} />
-                    <p>{post.content}</p>
-                    <button onClick={() => navigate(-1)}>Back</button>
-                </div>
+                <>
+                    <div className="container">
+                        <h1>Dettagli del post {post.id}</h1>
+                        <h2>{post.title}</h2>
+                        <img className="img-detail" src={post.image ? post.image.includes("https") ? post.image : `${BASE_URI}/${post.image}` : placeholder} alt={post.title} />
+                        <p>{post.content}</p>
+                        <button onClick={() => navigate(-1)}>Back</button>
+                    </div>
+                    <div className="flex">
+                        <button onClick={() => { id > 1 && navigate(`/blog/${+id - 1}`) }}>previous</button>
+                        <button onClick={() => navigate(`/blog/${+id + 1}`)}>next</button>
+                    </div>
+                </>
 
             ) : (
                 <div>Post non trovato</div>
