@@ -1,10 +1,9 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Home from "./pages/home/home.jsx"
 import AboutUs from './pages/aboutus/AboutUs.jsx'
-import PostsList from './pages/postsList/PostsList.jsx'
-
+import IndexPost from './pages/index.post/Index.post.jsx'
 import DefaultLayout from './layout/DefaultLayout.jsx'
-
+import ShowPost from './pages/show.post/ShowPost.jsx'
 import './App.css'
 
 export default function App() {
@@ -16,7 +15,8 @@ export default function App() {
         <Route element={<DefaultLayout />}>
           <Route path='/' element={<Home />} />
           <Route path='/aboutus' element={<AboutUs />} />
-          <Route path='/postslist' element={<PostsList />} />
+          <Route path='/blog' element={<IndexPost />} />
+          <Route path='/blog/:id' element={<ShowPost />} />
         </Route>
       </Routes>
     </BrowserRouter>

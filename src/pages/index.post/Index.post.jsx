@@ -1,8 +1,8 @@
 import Card from "../../components/card/Card.jsx"
-import style from "./postslist.module.css"
+import style from "./Index.post.module.css"
 import { useState, useEffect } from "react";
 import axios from "axios";
-export default function PostsList() {
+export default function IndexPost() {
     const [postsArray, setPostsArray] = useState([]);
 
     const BASE_URI = "http://localhost:3000"
@@ -34,6 +34,7 @@ export default function PostsList() {
                                 image={post.image}
                                 content={post.content}
                                 tags={post.tags}
+                                postId={post.id}
                             />
                         </div>
                     )
