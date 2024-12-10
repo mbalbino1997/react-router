@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from 'react-router-dom';
+import placeholder from "../../assets/imgs/placeholder.jpg";
 
 export default function ShowPost() {
     const { id } = useParams();
@@ -13,6 +14,7 @@ export default function ShowPost() {
         axios
             .get(`${BASE_URI}/posts/${id}`)
             .then((res) => {
+                console.log(res.data)
                 setPost(res.data);
             })
             .catch((err) => {
@@ -28,13 +30,14 @@ export default function ShowPost() {
     return (
         <div>
             {post ? (
-                <>
+                <div className="container">
                     <h1>Dettagli del post {post.id}</h1>
                     <h2>{post.title}</h2>
-                    <img src={post.image} alt={post.title} />
+                    <img src={post.image ? post.image.includes("https") ? post.image : `${BASE_URI}/${post.image}` : placeholder} alt={post.title} />
                     <p>{post.content}</p>
                     <button onClick={() => navigate(-1)}>Back</button>
-                </>
+                </div>
+
             ) : (
                 <div>Post non trovato</div>
             )}

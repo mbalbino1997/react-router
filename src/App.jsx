@@ -16,8 +16,8 @@ export default function App() {
           <Route path='/' element={<Home />} />
           <Route path='/aboutus' element={<AboutUs />} />
           <Route path='/blog' element={<IndexPost />} />
-          <Route path='/blog/:id' element={<ShowPost />} />
         </Route>
+        <Route path='/blog/:id' element={<ShowPost />} />
       </Routes>
     </BrowserRouter>
   )
