@@ -33,7 +33,7 @@ export default function ShowPost() {
                 <div className="container">
                     <h1>Dettagli del post {post.id}</h1>
                     <h2>{post.title}</h2>
-                    <img src={post.image ? post.image.includes("https") ? post.image : `${BASE_URI}/${post.image}` : placeholder} alt={post.title} />
+                    <img className="img-detail" src={post.image ? post.image.includes("https") ? post.image : `${BASE_URI}/${post.image}` : placeholder} alt={post.title} />
                     <p>{post.content}</p>
                     <button onClick={() => navigate(-1)}>Back</button>
                 </div>

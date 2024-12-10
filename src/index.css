@@ -32,3 +32,8 @@ section {
 footer {
     background-color: rgb(20, 18, 18);
 }
+
+.img-detail {
+    width: 300px;
+    aspect-ratio: 1/1;
+}
