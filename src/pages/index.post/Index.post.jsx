@@ -26,7 +26,7 @@ export default function IndexPost() {
         <div className="container">
             <div className={style.row}>
                 {postsArray.map((post) => (
-                    post.published && (
+                    post.published === 1 && (
                         <div className={style.col} key={post.id}>
                             <Card
                                 URI={BASE_URI}
